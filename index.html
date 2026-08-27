@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personnel Training · Week 5</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="week-view" class="screen is-open"></section>
+      <section id="day-view" class="screen"></section>
+      <section id="logbook-view" class="screen"></section>
+      <section id="watch-view" class="screen"></section>
+      <section id="food-view" class="screen"></section>
+      <section id="members-view" class="screen"></section>
+    </main>
+
+    <div id="lightbox" class="lightbox" hidden>
+      <div class="lightbox-card" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <button class="close-x" type="button" id="close-lightbox" aria-label="Close">×</button>
+        <div id="lightbox-art"></div>
+        <h2 id="lightbox-title"></h2>
+        <p id="lightbox-rx" class="rx"></p>
+        <p id="lightbox-note" class="section-note"></p>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/foods.js"></script>
+    <script src="js/food.js"></script>
+    <script src="js/logbook.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

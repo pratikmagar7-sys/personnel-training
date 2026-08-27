@@ -1,0 +1,12 @@
+{
+  "name": "personnel-training",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-session": "^2.1.1",
+    "express": "^4.21.2"
+  }
+}
