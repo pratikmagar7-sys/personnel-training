@@ -863,5 +863,15 @@ const WEEK = {
         },
       ],
     },
+    {
+      id: "post-friday",
+      label: "Post Friday",
+      short: "Post Fri",
+      focus: "Instagram reels",
+      accent: "#ef8fb4",
+      instagram: "https://www.instagram.com/p/DcgqMUSFovT/?img_index=5",
+      instagramPermalink: "https://www.instagram.com/p/DcgqMUSFovT/",
+      sections: [],
+    },
   ],
 };

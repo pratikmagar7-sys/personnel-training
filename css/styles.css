@@ -80,7 +80,7 @@ h1 {
 
 .day-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 14px;
 }
 
@@ -483,6 +483,14 @@ textarea {
   margin-top: 12px;
   color: var(--ink);
   font-weight: 600;
+}
+
+.instagram-card {
+  max-width: 560px;
+}
+
+.instagram-embed {
+  margin-top: 8px;
 }
 
 .credit {

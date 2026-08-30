@@ -67,7 +67,7 @@ function renderWeek() {
             <h2>${day.label}</h2>
           </div>
           <p>${day.focus}</p>
-          <p class="count">${countExercises(day)} movements</p>
+          <p class="count">${day.instagram ? "Instagram reels" : `${countExercises(day)} movements`}</p>
         </button>
       `
         )
@@ -85,6 +85,43 @@ function renderWeek() {
 function openDay(id) {
   const day = WEEK.days.find((item) => item.id === id);
   if (!day) return;
+
+  if (day.instagram) {
+    dayView.innerHTML = `
+      <button class="back" type="button" id="back-week">← Week overview</button>
+      <header class="day-hero">
+        <div>
+          <p class="kicker" style="color:${day.accent}">${day.label}</p>
+          <h1>${day.focus}</h1>
+        </div>
+      </header>
+      <section class="paper-card instagram-card">
+        <p class="section-note">Follow this session from the Instagram reels. Open it if the embed does not load.</p>
+        <a class="primary" href="${day.instagram}" target="_blank" rel="noreferrer">Open Instagram reels</a>
+        <div class="instagram-embed">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="${day.instagramPermalink}"
+            data-instgrm-captioned
+            data-instgrm-version="14"
+            style="margin: 0 auto; max-width: 540px;"
+          >
+            <a href="${day.instagram}">Instagram post</a>
+          </blockquote>
+        </div>
+      </section>
+    `;
+    document.getElementById("week-view").classList.remove("is-open");
+    document.getElementById("logbook-view").classList.remove("is-open");
+    document.getElementById("watch-view").classList.remove("is-open");
+    document.getElementById("food-view").classList.remove("is-open");
+    document.getElementById("members-view").classList.remove("is-open");
+    dayView.classList.add("is-open");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.getElementById("back-week").addEventListener("click", () => showScreen("week"));
+    loadInstagramEmbed();
+    return;
+  }
 
   dayView.innerHTML = `
     <button class="back" type="button" id="back-week">← Week overview</button>
@@ -142,6 +179,20 @@ function openDay(id) {
       openLightbox(item);
     });
   });
+}
+
+function loadInstagramEmbed() {
+  if (window.instgrm) {
+    window.instgrm.Embeds.process();
+    return;
+  }
+  const existing = document.querySelector("script[data-instagram-embed]");
+  if (existing) return;
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.instagram.com/embed.js";
+  script.dataset.instagramEmbed = "true";
+  document.body.appendChild(script);
 }
 
 function openLightbox(item) {
